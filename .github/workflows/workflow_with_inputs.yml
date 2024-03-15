@@ -4,8 +4,19 @@ on:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      environment:
+        description: "Environment to deploy"
+        required: true
+        default: development
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Deploying..."
+      
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        
+      - run: echo "Deploying to ${{ github.event.inputs.environment }}"
+
+      - run ls
