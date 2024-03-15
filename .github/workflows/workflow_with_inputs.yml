@@ -19,4 +19,4 @@ jobs:
         
       - run: echo "Deploying to ${{ github.event.inputs.environment }}"
 
-      - run ls
+      - run: ls
